@@ -1,0 +1,41 @@
+h1, h2 {
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+    margin: 20px 0;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+}
+
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.video-item {
+    text-align: center;
+}
+
+.video-item img {
+    width: 100%;
+    height: auto;
+}
+
+.video-title {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.channel-title {
+    font-size: 0.9rem;
+    margin-top: 5px;
+}

@@ -1,0 +1,17 @@
+# .gitignore
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Other
+.env

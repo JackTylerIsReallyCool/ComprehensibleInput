@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="text-center my-4">Videos in {{ language }}</h2>
+    <div class="text-center mb-4">
+        <label for="sortOrder" class="form-label">Sort by:</label>
+        <select id="sortOrder" class="bootstrap-select btn btn-default d-inline-block w-auto mx-2">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+        </select>
+        
+        <label for="channelFilter" class="form-label">Filter by Channel:</label>
+        <select id="channelFilter" class="selectpicker" multiple data-live-search="true">
+            {% set channel_titles = [] %}
+            {% for video in videos %}
+            {% if video['channel_title'] not in channel_titles %}
+            {% set _ = channel_titles.append(video['channel_title']) %}
+            <option value="{{ video['channel_title'] }}">{{ video['channel_title'] }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div id="videoGrid" class="row">
+        {% for video in videos %}
+        <div class="col-md-3 mb-4 video-item" data-upload-date="{{ video['upload_date'] }}" data-channel="{{ video['channel_title'] }}">
+            <div class="card h-100">
+                <a href="{{ url_for('video_page', video_id=video['video_id']) }}">
+                    <img src="https://img.youtube.com/vi/{{ video['video_id'] }}/mqdefault.jpg" class="card-img-top" alt="{{ video['title'] }}">
+                </a>
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ video['title'] }}</h5>
+                    <p class="card-text">{{ video['channel_title'] }}</p>
+                    <p class="text-muted upload-date"></p> <!-- Placeholder for the formatted date -->
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoGrid = document.getElementById('videoGrid');
+            const sortOrderSelect = document.getElementById('sortOrder');
+            const channelFilterSelect = document.getElementById('channelFilter');
+
+            function formatDate(dateString) {
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return new Date(dateString).toLocaleDateString(undefined, options);
+            }
+
+            function sortVideos(order) {
+                const videos = Array.from(videoGrid.getElementsByClassName('video-item'));
+                videos.sort((a, b) => {
+                    const dateA = new Date(a.getAttribute('data-upload-date'));
+                    const dateB = new Date(b.getAttribute('data-upload-date'));
+                    return order === 'newest' ? dateB - dateA : dateA - dateB;
+                });
+
+                videos.forEach(video => videoGrid.appendChild(video));
+            }
+
+            function filterVideos(selectedChannels) {
+                const videos = Array.from(videoGrid.getElementsByClassName('video-item'));
+                videos.forEach(video => {
+                    if (selectedChannels.length === 0 || selectedChannels.includes(video.getAttribute('data-channel'))) {
+                        video.style.display = '';
+                    } else {
+                        video.style.display = 'none';
+                    }
+                });
+            }
+
+            function getSelectedChannels() {
+                return Array.from(channelFilterSelect.selectedOptions).map(option => option.value);
+            }
+
+            // Initial formatting of dates
+            document.querySelectorAll('.video-item').forEach(function(item) {
+                const dateString = item.getAttribute('data-upload-date');
+                const formattedDate = formatDate(dateString);
+                item.querySelector('.upload-date').textContent = formattedDate;
+            });
+
+            // Handle sorting when the dropdown value changes
+            sortOrderSelect.addEventListener('change', () => sortVideos(sortOrderSelect.value));
+            channelFilterSelect.addEventListener('change', () => filterVideos(getSelectedChannels()));
+
+            // Initialize Bootstrap Select
+            $('.selectpicker').selectpicker();
+
+            // Initial sort by newest
+            sortVideos('newest');
+        });
+    </script>
+{% endblock %}
