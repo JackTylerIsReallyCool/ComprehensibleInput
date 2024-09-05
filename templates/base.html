@@ -21,10 +21,8 @@
 </head>
 <body>
     <header class="text-center py-4">
-        <h1>Comprehensible Input Videos</h1>
-        <nav>
-            <a class="btn btn-primary mx-2" href="{{ url_for('homepage') }}">Home</a>
-        </nav>
+        {% block header %}
+        {% endblock %}
     </header>
     <main class="container">
         {% block content %}{% endblock %}
