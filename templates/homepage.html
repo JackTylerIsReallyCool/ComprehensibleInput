@@ -2,16 +2,66 @@
 
 {% block header %}
 <h1>Comprehensible Input Videos</h1>
-<nav>
-    <a class="btn btn-primary mx-2" href="{{ url_for('homepage') }}">Home</a>
-</nav>
 {% endblock %}
 
 {% block content %}
-<h2>Select a Language</h2>
 <ul>
     {% for language in languages %}
     <li><a href="{{ url_for('browse', language=language) }}">{{ language }}</a></li>
     {% endfor %}
 </ul>
+
+<style>
+    * {
+        font-size: 3rem;
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        list-style-type: none;
+        padding: 0;
+        gap: 1rem;
+    }
+
+    ul li {
+        text-align: center;
+        padding: 1rem;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    ul li:hover {
+        box-shadow: 0 4px 8px 0 blueviolet, 0 6px 20px 0;
+    }
+
+    ul li a {
+        padding: 5rem;
+    }
+
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 1200px) {
+        ul {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 992px) {
+        ul {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        * {
+            font-size: 2rem;
+        }
+        
+        ul {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 0.1rem;
+        }
+    }
+</style>
 {% endblock %}

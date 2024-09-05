@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block header %}
-<h2 class="text-center my-4">Videos in {{ language }}</h2>
+<h2 class="text-center my-4">{{ language }} Videos</h2>
 {% endblock %}
 
 {% block content %}
@@ -114,13 +114,7 @@
     @media (max-width: 768px) {
         .video-grid {
             grid-template-columns: repeat(1, 1fr);
-        }
-
-        .options-bar {
-            flex-direction: column;
-            padding: 0.5rem;
-            margin: 0.5rem;
-        }
+        }        
 
         .options-bar .sort-order,
         .options-bar .channel-filter {
@@ -137,6 +131,12 @@
     }
 
     @media (max-width: 576px) {
+        .options-bar {
+            flex-direction: column;
+            padding: 0.5rem;
+            margin: 0.5rem;
+        }
+
         .video-grid {
             padding: 1rem;
             gap: 10px;
