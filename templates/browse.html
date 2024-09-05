@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block header %}
-<h2 class="text-center my-4">{{ language }} Videos</h2>
+<h2 class="text-center">{{ language }} Videos</h2>
 {% endblock %}
 
 {% block content %}
@@ -30,17 +30,26 @@
             <a href="{{ url_for('video_page', video_id=video['video_id']) }}">
                 <img src="https://img.youtube.com/vi/{{ video['video_id'] }}/mqdefault.jpg" class="card-img-top"
                     alt="{{ video['title'] }}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ video['title'] }}</h5>
+                        <p class="card-text">{{ video['channel_title'] }}</p>
+                        <p class="text-muted upload-date"></p> <!-- Placeholder for the formatted date -->
+                    </div>
             </a>
-            <div class="card-body text-center">
-                <h5 class="card-title">{{ video['title'] }}</h5>
-                <p class="card-text">{{ video['channel_title'] }}</p>
-                <p class="text-muted upload-date"></p> <!-- Placeholder for the formatted date -->
-            </div>
         </div>
     </div>
     {% endfor %}
 </div>
 <style>
+    h2 {
+        font-size: 5rem;
+    }
+
+    a {
+        text-decoration: none !important;
+        color: black;
+    }
+
     .options-bar {
         display: flex;
         flex-direction: row;
@@ -131,12 +140,6 @@
     }
 
     @media (max-width: 576px) {
-        .options-bar {
-            flex-direction: column;
-            padding: 0.5rem;
-            margin: 0.5rem;
-        }
-
         .video-grid {
             padding: 1rem;
             gap: 10px;

@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
     {% for language in languages %}
-    <li><a href="{{ url_for('browse', language=language) }}">{{ language }}</a></li>
+    <a href="{{ url_for('browse', language=language) }}">{{ language }}</a>
     {% endfor %}
 </ul>
 
@@ -24,18 +24,17 @@
         gap: 1rem;
     }
 
-    ul li {
-        text-align: center;
-        padding: 1rem;
-        background-color: white;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
 
-    ul li:hover {
+
+    ul a:hover {
         box-shadow: 0 4px 8px 0 blueviolet, 0 6px 20px 0;
     }
 
-    ul li a {
+    ul a {
+        text-align: center;
+        padding: 0;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         padding: 5rem;
     }
 

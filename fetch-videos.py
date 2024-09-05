@@ -1,6 +1,7 @@
 import requests
 import csv
 import os
+import html
 from dotenv import load_dotenv
 from datetime import datetime
 
@@ -13,7 +14,6 @@ CHANNELS = [
 ]
 BASE_URL = 'https://www.googleapis.com/youtube/v3/search'
 CSV_FILE = 'videos.csv'
-
 
 def fetch_videos(channel_id):
     videos = []
@@ -59,6 +59,10 @@ def save_videos_to_csv(videos, channel_id, language):
         for video in videos:
             video_id = video['id']['videoId']
             if video_id not in existing_video_ids:
+                # Decode HTML entities in the video title and channel title
+                decoded_title = html.unescape(video['snippet']['title'])
+                decoded_channel_title = html.unescape(video['snippet']['channelTitle'])
+                
                 # Format the publishedAt date
                 upload_date = datetime.strptime(video['snippet']['publishedAt'], "%Y-%m-%dT%H:%M:%SZ").strftime('%B %d, %Y')
                 
@@ -66,9 +70,9 @@ def save_videos_to_csv(videos, channel_id, language):
                     video_id, 
                     channel_id, 
                     language, 
-                    video['snippet']['title'], 
-                    video['snippet']['channelTitle'], 
-                    upload_date  # Store the formatted upload date
+                    decoded_title,
+                    decoded_channel_title,  
+                    upload_date
                 ])
                 existing_video_ids.add(video_id)  # Update the set to include this new video ID
 
