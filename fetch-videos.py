@@ -11,6 +11,7 @@ CHANNELS = [
     {'channel_id': 'UC3VyG75zgWvLkK3mL77Yz3g', 'language': 'English'},
     {'channel_id': 'UCSW8FB6e8tUGEaDsoe7SlWw', 'language': 'English'},
     {'channel_id': 'UCouyFdE9-Lrjo3M_2idKq1A', 'language': 'Spanish'},
+    {'channel_id': 'UCfG2VhlQgy5bHGmkpeKcjVA', 'language': 'Spanish'},
 ]
 BASE_URL = 'https://www.googleapis.com/youtube/v3/search'
 CSV_FILE = 'videos.csv'
