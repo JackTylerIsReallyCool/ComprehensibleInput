@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block header %}
-<h2 class="text-center">{{ language }} Videos</h2>
+<h1 class="">{{ language }} Videos</h1>
 {% endblock %}
 
 {% block content %}
@@ -41,8 +41,12 @@
     {% endfor %}
 </div>
 <style>
-    h2 {
-        font-size: 5rem;
+    .container {
+        padding: 0;
+    }
+
+    h1 {
+        
     }
 
     a {
@@ -75,11 +79,8 @@
 
     .video-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
-        background-color: white;
-        padding: 2rem;
-        border-radius: 15px;
     }
 
     .video-item {
@@ -108,47 +109,21 @@
     }
 
     /* Media Queries for Responsiveness */
-    @media (max-width: 1200px) {
-        .video-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-
-    @media (max-width: 992px) {
-        .video-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
     @media (max-width: 768px) {
-        .video-grid {
-            grid-template-columns: repeat(1, 1fr);
-        }        
 
         .options-bar .sort-order,
         .options-bar .channel-filter {
             flex: 1 1 100%;
         }
 
-        .video-title {
-            font-size: 0.9rem;
-        }
-
-        .channel-title {
-            font-size: 0.8rem;
-        }
     }
 
     @media (max-width: 576px) {
         .video-grid {
-            padding: 1rem;
-            gap: 10px;
-        }
-
-        .video-item {
-            box-shadow: none;
+            grid-template-columns: 1fr;
         }
     }
+
 </style>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
