@@ -10,8 +10,15 @@ YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
 CHANNELS = [
     {'channel_id': 'UC3VyG75zgWvLkK3mL77Yz3g', 'language': 'English'},
     {'channel_id': 'UCSW8FB6e8tUGEaDsoe7SlWw', 'language': 'English'},
+    {'channel_id': 'UC0QAymHwRmS84Crn8Bgt0tQ', 'language': 'English'},
     {'channel_id': 'UCouyFdE9-Lrjo3M_2idKq1A', 'language': 'Spanish'},
     {'channel_id': 'UCfG2VhlQgy5bHGmkpeKcjVA', 'language': 'Spanish'},
+    {'channel_id': 'UC6Xtu6v_op552SsOr5_jWrg', 'language': 'Japanese'},
+    {'channel_id': 'UCMNVKIaw8hV8ln3dDE5z-hA', 'language': 'Japanese'},
+    {'channel_id': 'UCsQCbl3a9FtYvA55BxdzYiQ', 'language': 'Japanese'},
+    {'channel_id': 'UCXo8kuCtqLjL1EH6m4FJJNA', 'language': 'Japanese'},
+    {'channel_id': 'UCjSFDgRCzh_1ZPhxChVgK7Q', 'language': 'Chinese'},
+    {'channel_id': 'UCcvTOgUiplI80SPR73ogCEQ', 'language': 'Chinese'},
 ]
 BASE_URL = 'https://www.googleapis.com/youtube/v3/search'
 CSV_FILE = 'videos.csv'
