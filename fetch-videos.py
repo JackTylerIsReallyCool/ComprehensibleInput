@@ -19,6 +19,8 @@ CHANNELS = [
     {'channel_id': 'UCXo8kuCtqLjL1EH6m4FJJNA', 'language': 'Japanese'},
     {'channel_id': 'UCjSFDgRCzh_1ZPhxChVgK7Q', 'language': 'Chinese'},
     {'channel_id': 'UCcvTOgUiplI80SPR73ogCEQ', 'language': 'Chinese'},
+    {'channel_id': 'UCCD-nJGAxKmh1GnSuUx8Gig', 'language': 'French'},
+    {'channel_id': 'UCDqH89_8ThHUWatP2sLC1Qw', 'language': 'Portuguese'},
 ]
 BASE_URL = 'https://www.googleapis.com/youtube/v3/search'
 CSV_FILE = 'videos.csv'
