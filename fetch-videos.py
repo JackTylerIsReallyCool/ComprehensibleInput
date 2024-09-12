@@ -45,6 +45,7 @@ CHANNELS = [
     {'channel_id': 'UCstP8x5cV3_fMvVFT_aQ-nA', 'language': 'Russian'},
     {'channel_id': 'UCldG3IoWKLAt3ZUCNTGSL9w', 'language': 'Russian'},
     {'channel_id': 'UCIbkDDk1BCPvh0rnL98jDIw', 'language': 'Russian'},
+    {'channel_id': 'UCIbkDDk1BCPvh0rnL98jDIw', 'language': 'Russian'},
     {'channel_id': 'UC737T1zTN6MQ1uWorHVAXvA', 'language': 'Korean'},
     {'channel_id': 'UCxwSrFHHC3I9xFxrChfuqwA', 'language': 'Korean'},
     {'channel_id': 'UC-3wHyVaLCiujjjPYXtif5w', 'language': 'Korean'},
@@ -72,6 +73,10 @@ CHANNELS = [
     {'channel_id': 'UC4di2z7dbPra5xhp6BN7XwQ', 'language': 'Vietnamese'},
     {'channel_id': 'UCQS2_zzisMq5C_FggxsQwTQ', 'language': 'Cantonese'},
     {'channel_id': 'UC9xosUh_LZUdQv-kw38RehA', 'language': 'Cantonese'},
+    {'channel_id': 'UCAXD2TuTkY_Tld20lYNL15g', 'language': 'Turkish'},
+    {'channel_id': 'UCeMQiXmFNTtN3OHlNJxnnUw', 'language': 'Turkish'},
+    {'channel_id': 'UCQg2AzkYEueS5giD84wxLdg', 'language': 'Ukrainian'},
+    {'channel_id': 'UCTJzD-YVoDGolkN7lQ4ZasQ', 'language': 'Ukrainian'},
 ]
 BASE_URL = 'https://www.googleapis.com/youtube/v3/search'
 CSV_FILE = 'videos.csv'
