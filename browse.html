@@ -26,10 +26,11 @@
       <option value="random">Random</option>
       <option value="newestFirst" selected>Newest First</option>
       <option value="oldestFirst">Oldest First</option>
-  </select>
-  <select id="channel-filter" class="selectpicker" multiple data-live-search="true" title="Filter Channels" onchange="populateVideosGrid()">
-  </select>
-</div>
+    </select>
+    <select id="channel-filter" class="selectpicker" multiple data-live-search="true" title="Filter Channels"
+      onchange="populateVideosGrid()">
+    </select>
+  </div>
 
   <div id="videos-grid"></div>
 </body>
@@ -40,7 +41,7 @@
     background-color: snow;
   }
 
-  #page-title{
+  #page-title {
     text-align: center;
     font-weight: 350;
     font-size: 8rem;
@@ -68,12 +69,12 @@
     box-shadow: 0px 0px 1px black;
   }
 
-  .video-thumbnail{
+  .video-thumbnail {
     width: 100%;
     border-radius: 10px 10px 0 0;
   }
 
-  .video-info{
+  .video-info {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -82,15 +83,15 @@
     padding: 0.2rem;
   }
 
-  .video-info > *{
+  .video-info>* {
     margin: 5px 0;
   }
 
-  .video-title{
+  .video-title {
     font-weight: bold;
   }
 
-  a{
+  a {
     text-decoration: none;
   }
 
@@ -100,15 +101,15 @@
     margin-bottom: 5px;
   }
 
-  .caret{
+  .caret {
     all: initial !important;
   }
 
-  a{
+  a {
     border-radius: 5px;
   }
 
-  #sort-by{
+  #sort-by {
     padding: 6px 12px;
     border-color: white;
     border-radius: 4px;
@@ -118,78 +119,97 @@
     border: none;
   }
 
-  #filters *{
+  #filters * {
     font-weight: 650;
     color: #000b;
     border: none;
     appearance: none;
   }
 
-  #filters > *{
+  #filters>* {
     border: 1px solid #000c;
     border-radius: 5px;
     background-color: white;
   }
 
-  #sort-by:hover{
+  #sort-by:hover {
     cursor: pointer;
   }
 
-  #filters{
+  #filters {
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0px 0px 2px crimson;
   }
 
-  #filters *:hover{
+  #filters *:hover {
     background-color: white;
     border-radius: 4px;
   }
 
-
-  .bootstrap-select .dropdown-menu{
-    max-width: 100%;
+  .bootstrap-select .dropdown-menu .selected * {
+    color: blue !important;
   }
 
-  #filters .dropdown-toggle:focus{
+  .bootstrap-select .dropdown-menu * {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .bootstrap-select .dropdown-menu .glyphicon-ok::before {
+    display: none;
+  }
+
+
+
+  #filters .dropdown-toggle:focus {
     outline: none !important;
   }
 
   @media only screen and (max-width: 700px) {
     #page-title {
-        font-size: 4rem;
-        padding-bottom: 0.5rem;
+      font-size: 4rem;
+      padding-bottom: 0.5rem;
     }
   }
+
+  @media only screen and (max-width: 500px) {
+    .bootstrap-select .dropdown-menu {
+      width: 100%;
+      /* or a fixed width like 200px */
+      max-width: 100%;
+      /* prevents the dropdown from exceeding its container */
+    }
+  }
+
   @media only screen and (max-width: 440px) {
-    body{
+    body {
       margin: 0;
     }
 
-    #page-title{
+    #page-title {
       font-size: 10vw;
       padding: 5px;
     }
 
-    #videos-grid{
+    #videos-grid {
       margin: 1rem 0;
     }
 
-    .video-item{
+    .video-item {
       box-shadow: 1px 1px 10px gray;
       margin: 0 1rem;
     }
 
-    #videos-grid *{
-    }
-    
-    #filters{
+    #videos-grid * {}
+
+    #filters {
       display: flex;
       justify-content: space-between;
       border-radius: 0;
     }
 
-    
+
   }
 </style>
 
