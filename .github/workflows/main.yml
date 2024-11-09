@@ -27,6 +27,6 @@ jobs:
 
         # Step 4: Run the update script
       - name: Run update script
+        run: python fetch-videos.py
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEYS }}
-        run: python fetch-videos.py
