@@ -1,0 +1,32 @@
+name: Update YouTube Videos Daily
+
+on:
+  schedule:
+    # This cron expression runs the script daily at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows you to manually run it from the Actions tab
+  
+jobs:
+  update-videos:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+        # Step 4: Run the update script
+      - name: Run update script
+        run: python fetch-videos.py
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEYS }}
