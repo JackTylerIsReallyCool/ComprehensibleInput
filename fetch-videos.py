@@ -5,13 +5,10 @@ import requests
 import csv
 import os
 import html
+from dotenv import load_dotenv
 from datetime import datetime
 
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    pass
+load_dotenv()
 
 YOUTUBE_API_KEYS = os.getenv('YOUTUBE_API_KEYS').split(',')
 api_key_index = 0
