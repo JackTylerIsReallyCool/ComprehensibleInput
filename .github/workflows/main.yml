@@ -30,3 +30,16 @@ jobs:
         run: python fetch-videos.py
         env:
           YOUTUBE_API_KEYS: ${{ secrets.YOUTUBE_API_KEYS }}
+
+      - name: Configure Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit changes
+        run: |
+          git add videos.csv
+          git commit -m "Update videos.csv [skip ci]" || echo "No changes to commit"
+
+      - name: Push changes
+        run: git push
