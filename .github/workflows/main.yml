@@ -39,7 +39,7 @@ jobs:
       - name: Commit changes
         run: |
           git add videos.csv
-          git commit -m "Update videos.csv [skip ci]" || echo "No changes to commit"
+          git commit -m "Update videos.csv" || echo "No changes to commit"
 
       - name: Push changes
         run: git push
