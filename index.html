@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
     <script src="script.js"></script>
 
@@ -12,27 +11,75 @@
 </head>
 
 <body>
-    <h1>Comprehensible Input</h1>
+    <div class="header">
+        <div class="banner">
+            <div class="site-title">Language-Input</div>
+        </div>
+        <nav>
+            <a class="selected" href="browse.html">Browse</a>
+            <a href="about.html">About</a>
+            <a href="method.html">Method</a>
+            <a href="#">Donate</a>
+        </nav>
+    </div>
     <div id="languages-grid"></div>
 </body>
 
 <style>
+    * {
+        box-sizing: border-box;
+    }
+    
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
-        background-color: snow;
+        padding: 0;
+        font-size: 1rem;
+        line-height: 200%;
     }
 
-    h1 {
-        text-align: center;
-        font-weight: 350;
-        font-size: 12vw;
-        color: #000c;
-        border-bottom: 5px solid crimson;
+    .header {
+        width: 100%;
+    }
+
+    .header nav {
+        display: flex;
+        justify-content: space-around;
+        background-color: rgb(231, 29, 69);
+    }
+
+    .header nav a {
+        padding: 0;
         margin: 0;
-        padding: 1rem 0;
-
+        color: white;
+        text-decoration: none;
     }
+
+    .header nav a:hover {
+        text-decoration: underline;
+    }
+
+    .header nav .selected {
+        text-decoration: underline;
+    }
+
+    .header .banner {
+        height: 5%;
+        padding: 3rem;
+        background-image: url("books.jpg");
+    }
+
+    .header .banner .site-title {
+        color: whitesmoke;
+        font-size: 5rem;
+        background-color: rgba(238, 39, 39, 0.753);
+        line-height: 6rem;
+        width: fit-content;
+        height: fit-content;
+        padding: 1rem;
+        border-radius: 15px;
+    }
+
 
     #languages-grid {
         display: grid;
@@ -50,40 +97,41 @@
         color: #000b;
 
     }
-
-    @media only screen and (min-width: 700px) {
-        h1 {
-            font-size: 5rem;
-        }
+    
+    #languages-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 0.5rem;
+        margin: 1rem;
     }
 
-    @media only screen and (min-width: 440px) {
-        h1 {
+    #languages-grid a {
+        font-size: 2rem;
+        padding: 2rem;
+        border-radius: 5px;
+        box-shadow: 1px 1px 10px black;
+        border: none;
+    }
+
+    #languages-grid a:hover {
+        text-decoration: underline;
+    }
+
+    @media only screen and (max-width: 500px) {
+        .header .banner {
+            padding: 0;
+        }
+        .header .banner .site-title {
             font-size: 3rem;
-        }
-        
-        body{
-            margin: 0 10%;
-        }
+            line-height: 200%;
+            text-align: center;
+            padding: 0;
+            border-radius: 0;
+            width: 100%;
+            background-color: rgba(238, 39, 39, 0.53);
 
-        #languages-grid {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        #languages-grid a {
-            font-size: 2rem;
-            padding: 2rem;
-            border-radius: 5px;
-            box-shadow: 1px 1px 10px black;
-            border: none;
-        }
-
-        #languages-grid a:hover {
-            text-decoration: underline;
         }
     }
+
 </style>
 
 <script>
