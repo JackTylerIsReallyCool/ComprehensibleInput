@@ -34,6 +34,9 @@ function initializeBrowsePage(){
 
     const urlParams = new URLSearchParams(window.location.search);
     window.selectedLanguage = urlParams.get('language');
+    if(!selectedLanguage){
+        window.location.replace('index.html');
+    }
     window.videos = videos.filter(video => video.language === selectedLanguage)
     console.log(videos);
 
