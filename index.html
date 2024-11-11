@@ -22,20 +22,23 @@
             <a href="#">Donate</a>
         </nav>
     </div>
-    <div id="languages-grid"></div>
+    <section class="main-content">
+        <div id="languages-grid"></div>
+    </section>
 </body>
 
 <style>
     * {
         box-sizing: border-box;
     }
-    
+
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
         padding: 0;
         font-size: 1rem;
         line-height: 200%;
+        background-color: whitesmoke;
     }
 
     .header {
@@ -80,6 +83,18 @@
         border-radius: 15px;
     }
 
+    .quote {
+        background-color: steelblue;
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 0.1rem;
+        color: white;
+    }
+
+    .main-content {
+        margin: 0 5%;
+        color: #000e;
+    }
 
     #languages-grid {
         display: grid;
@@ -97,7 +112,7 @@
         color: #000b;
 
     }
-    
+
     #languages-grid {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 0.5rem;
@@ -108,8 +123,9 @@
         font-size: 2rem;
         padding: 2rem;
         border-radius: 5px;
-        box-shadow: 1px 1px 10px black;
+        box-shadow: 1px 1px 5px black;
         border: none;
+        background-color: white;
     }
 
     #languages-grid a:hover {
@@ -120,6 +136,7 @@
         .header .banner {
             padding: 0;
         }
+
         .header .banner .site-title {
             font-size: 3rem;
             line-height: 200%;
@@ -130,8 +147,17 @@
             background-color: rgba(238, 39, 39, 0.315);
 
         }
-    }
 
+        .main-content {
+            margin: 0;
+        }
+
+        .quote {
+            font-size: 1rem;
+            line-height: 150%;
+        }
+
+    }
 </style>
 
 <script>

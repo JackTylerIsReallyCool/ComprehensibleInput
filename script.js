@@ -40,34 +40,16 @@ function initializeBrowsePage(){
     window.videos = videos.filter(video => video.language === selectedLanguage)
     console.log(videos);
 
-    populateChannelFilterOptions();
     populateVideosGrid();
 }
 
-function populateChannelFilterOptions(){
-    const channelFilter = document.getElementById('channel-filter');
-    const channels = [...new Set(videos.map(video => video.channel_title))].sort();
-
-    for(var channel of channels){
-        const channelOption = document.createElement('option');
-        channelOption.value = channel;
-        channelOption.innerHTML = channel;
-        channelFilter.appendChild(channelOption);
-    }
-    $('#channel-filter').selectpicker('refresh');
-}
-
 function populateVideosGrid() {
-    //filter videos
-    const filteredChannels = $('#channel-filter').selectpicker('val');
-    var filteredVideos = null;
-    filteredVideos = filteredChannels.length ? videos.filter(video => filteredChannels?.includes(video.channel_title)) : videos;
 
     //Sort Videos
     const sortByElement = document.getElementById('sort-by');
     const sortBy = sortByElement.value;
 
-    orderedVideos = filteredVideos.sort((a, b) => {
+    orderedVideos = videos.sort((a, b) => {
         const dateA = new Date(a.upload_date);
         const dateB = new Date(b.upload_date);
         
@@ -87,7 +69,7 @@ function populateVideosGrid() {
     const videosGrid = document.getElementById('videos-grid');
     videosGrid.innerHTML = '';
     if (videos.length > 0) {
-        for (video of filteredVideos) {
+        for (video of orderedVideos) {
             const videoItem = document.createElement('div');
             videoItem.classList.add('video-item');
 
