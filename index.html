@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
     <script src="script.js"></script>
 
@@ -44,13 +44,13 @@
 
     .header nav {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         background-color: rgb(231, 29, 69);
     }
 
     .header nav a {
         padding: 0;
-        margin: 0 10%;
+        margin: 0;
         color: white;
         text-decoration: none;
     }
@@ -115,6 +115,23 @@
     #languages-grid a:hover {
         text-decoration: underline;
     }
+
+    @media only screen and (max-width: 500px) {
+        .header .banner {
+            padding: 0;
+        }
+        .header .banner .site-title {
+            font-size: 3rem;
+            line-height: 200%;
+            text-align: center;
+            padding: 0;
+            border-radius: 0;
+            width: 100%;
+            background-color: rgba(238, 39, 39, 0.53);
+
+        }
+    }
+
 </style>
 
 <script>

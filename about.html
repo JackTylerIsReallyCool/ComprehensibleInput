@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Language-Input</title>
 </head>
 
@@ -83,13 +84,13 @@
 
     .header nav {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         background-color: rgb(231, 29, 69);
     }
 
     .header nav a {
         padding: 0;
-        margin: 0 10%;
+        margin: 0;
         color: white;
         text-decoration: none;
     }
@@ -117,5 +118,21 @@
         height: fit-content;
         padding: 1rem;
         border-radius: 15px;
+    }
+
+    @media only screen and (max-width: 500px) {
+        .header .banner {
+            padding: 0;
+        }
+        .header .banner .site-title {
+            font-size: 3rem;
+            line-height: 200%;
+            text-align: center;
+            padding: 0;
+            border-radius: 0;
+            width: 100%;
+            background-color: rgba(238, 39, 39, 0.53);
+
+        }
     }
 </style>

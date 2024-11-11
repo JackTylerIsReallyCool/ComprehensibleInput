@@ -37,9 +37,6 @@ function initializeBrowsePage(){
     window.videos = videos.filter(video => video.language === selectedLanguage)
     console.log(videos);
 
-    const titleElement = document.getElementById('page-title');
-    titleElement.textContent = `${selectedLanguage} Videos`;
-
     populateChannelFilterOptions();
     populateVideosGrid();
 }
@@ -61,7 +58,7 @@ function populateVideosGrid() {
     //filter videos
     const filteredChannels = $('#channel-filter').selectpicker('val');
     var filteredVideos = null;
-    filteredVideos = filteredChannels ? videos.filter(video => filteredChannels?.includes(video.channel_title)) : videos;
+    filteredVideos = filteredChannels.length ? videos.filter(video => filteredChannels?.includes(video.channel_title)) : videos;
 
     //Sort Videos
     const sortByElement = document.getElementById('sort-by');
