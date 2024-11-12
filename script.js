@@ -92,7 +92,7 @@ function populateVideosGrid() {
 
 
             const linkWrapper = document.createElement('a');
-            linkWrapper.href = `watch.html?video_id=${video.video_id}&title=${encodeURIComponent(video.title)}&language=${encodeURIComponent(selectedLanguage)}`;
+            linkWrapper.href = `watch.html?video_id=${video.video_id}&title=${encodeURIComponent(video.title)}&language=${encodeURIComponent(selectedLanguage)}&channel=${encodeURIComponent(video.channel_title)}&upload-date=${encodeURIComponent(video.upload_date)}`;
 
 
             videoInfo.appendChild(titleElement);
