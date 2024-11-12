@@ -126,7 +126,9 @@
         margin: 0 1rem;
     }
 
-
+    .video-info * {
+        text-align: center;
+    }
     @media only screen and (max-width: 500px) {
         .header .banner {
             padding: 0;
@@ -141,9 +143,18 @@
             background-color: rgba(238, 39, 39, 0.315);
         }
 
-        .video-title{
+        #video-title{
             font-size: 1.5rem;
             line-height: 2rem;
+        }
+
+        .video-info{
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .video-info *{
+            margin: auto;
         }
     }
 </style>
