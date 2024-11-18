@@ -91,16 +91,16 @@
     }
 
     .main-content {
-        margin: 0 10%;
+        margin: 0 20%;
         color: #000c;
     }
 
 
     #video-title {
         text-align: center;
-        margin: 0.5rem 0;
-        font-size: 3rem;
-        line-height: 4rem;
+        margin: 1rem 0;
+        font-size: 2rem;
+        line-height: 2.5rem;
         
     }
 
@@ -121,14 +121,30 @@
     }
 
     .video-info {
-        display: flex;
-        justify-content: space-between;
-        margin: 0 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 1rem;
     }
 
     .video-info * {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    #language{
+        text-align: left;
+    }
+
+    #channel{
         text-align: center;
     }
+
+    #upload-date{
+        text-align: right;
+    }
+
+
+
     @media only screen and (max-width: 500px) {
         .header .banner {
             padding: 0;
@@ -143,12 +159,17 @@
             background-color: rgba(238, 39, 39, 0.315);
         }
 
+        .main-content{
+            margin: 0 10%;
+        }
+
         #video-title{
-            font-size: 1.5rem;
-            line-height: 2rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
         }
 
         .video-info{
+            display: flex;
             margin: 0;
             flex-direction: column;
         }
