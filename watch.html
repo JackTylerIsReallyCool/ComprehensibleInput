@@ -21,16 +21,18 @@
         </nav>
     </div>
     <div class="main-content">
+        <div class="coloured">
+            <div class="video-container">
+                <iframe id="video-frame" class="video-frame"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                    frameborder="0"></iframe>
+            </div>
             <h1 id="video-title">Video Title</h1>
-        <div class="video-container">
-            <iframe id="video-frame" class="video-frame"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                frameborder="0"></iframe>
-        </div>
-        <div class="video-info">
-            <p id="language">Language</p>
-            <p id="channel">Channel</p>
-            <p id="upload-date">Date Uploaded</p>
+            <div class="video-info">
+                <p id="language">Language</p>
+                <p id="channel">Channel</p>
+                <p id="upload-date">Date Uploaded</p>
+            </div>
         </div>
     </div>
 </body>
@@ -95,18 +97,25 @@
         color: #000c;
     }
 
+    .coloured {
+        margin: 1rem 0;
+        padding: 1rem;
+        background-color: gainsboro;
+        border-radius: 10px;
+    }
+
 
     #video-title {
         text-align: center;
         margin: 1rem 0;
         font-size: 2rem;
         line-height: 2.5rem;
-        
     }
 
     .video-container {
         width: 100%;
-        padding-top: 56.25%; /* 16:9 */
+        padding-top: 56.25%;
+        /* 16:9 */
         position: relative;
     }
 
@@ -124,31 +133,40 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         margin: 1rem;
+        border-top: 2px solid gray;
+        padding: 0.5rem;
     }
 
     .video-info * {
         font-weight: bold;
         margin: 0;
+
     }
 
-    #language{
+    #language {
         text-align: left;
     }
 
-    #channel{
+    #channel {
         text-align: center;
     }
 
-    #upload-date{
+    #upload-date {
         text-align: right;
     }
 
-
+    @media only screen and (max-width: 900px) {
+        #video-title {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+    }
 
     @media only screen and (max-width: 500px) {
         .header .banner {
             padding: 0;
         }
+
         .header .banner .site-title {
             font-size: 3rem;
             line-height: 200%;
@@ -159,22 +177,22 @@
             background-color: rgba(238, 39, 39, 0.315);
         }
 
-        .main-content{
-            margin: 0 10%;
+        .main-content {
+            margin: 0 5%;
         }
 
-        #video-title{
+        #video-title {
             font-size: 1rem;
             line-height: 1.5rem;
         }
 
-        .video-info{
+        .video-info {
             display: flex;
             margin: 0;
             flex-direction: column;
         }
 
-        .video-info *{
+        .video-info * {
             margin: auto;
         }
     }
@@ -197,7 +215,7 @@
     channelElement.innerHTML = channelTitle;
     languageElement.innerHTML = selectedLanguage;
     uploadDateElement.innerHTML = uploadDate;
-    
+
     if (!videoId) {
         window.location.replace(`browse.html?language=${selectedLanguage}`);
     } else {
